@@ -7,53 +7,57 @@ import java.util.Scanner;
 public class pet{
     public static void main (String[]args){
     Scanner sc=new Scanner(System.in);
+    String color="1";
+    String season="1";
+    String name="1";
 
     //asks for color
-    System.out.println("Enter your favorite color (Either red, blue or green):");
-    String color=(sc.nextLine()).toLowerCase(); //scanner thing here
-    if(color!="red"||color!="green"||color!="blue"){
+    while (!(color.equals("red")||color.equals("green")||color.equals("blue"))){
         System.out.println("Enter your favorite color (Either red, blue or green):");
+        color=(sc.nextLine()).toLowerCase();
 
     }
     
     //asks for season
-    System.out.println("Enter your favorite season (Either spring, summer, fall, or winter):");
-    String season=(sc.nextLine()).toLowerCase(); //scanner thing here
-    if(season!="spring"||season!="summer"||season!="fall"||season!="winter"){
+    while (!(season.equals("spring")||season.equals("summer")||season.equals("fall")||season.equals("winter"))){
         System.out.println("Enter your favorite season (Either spring, summer, fall, or winter):");
+        season=(sc.nextLine()).toLowerCase();
 
     }
     
-    //asks for name
-    System.out.println("Enter your name:");
-    String name=(sc.nextLine()).toLowerCase(); //scanner thing here
+    //asks for name until it starts with a letter
+    while (!("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(0, 1).toLowerCase()) >= 0)){
+         System.out.println("Enter your name:");
+         name=(sc.nextLine()).toLowerCase();
+    }
+
+
 
         String pet;
-        boolean vowel=("AEIOUaeiou".indexOf(name.substring(0,1)))!=-1; //true if name starts with vowel if false then it stats with a constanant
+        //true if name starts with vowel if false then it stats with a constanant
+        boolean vowel=("AEIOUaeiou".indexOf(name.substring(0,1)))!=-1; 
 
-    if (color=="blue"&&season=="fall"){
+    if (color.equals("blue")&&season.equals("fall")){
         pet="Alligator";
-    }else if(color=="blue"&&season=="spring"){
+    }else if(color.equals("blue")&&season.equals("spring")){
         pet="Ostrich";
-    }else if(color=="green"&&!vowel&&season=="winter"){
+    }else if(color.equals("green")&&!vowel&&season.equals("winter")){
        pet="Giraffe"; 
-    }else if(color=="green"&&season!="fall"){
+    }else if(color.equals("green")&& !season.equals("fall")){
        pet="Dog"; 
-    }else if(color=="red"&&vowel){
+    }else if(color.equals("red")&&vowel){
        pet="Porcupine"; 
-    }else if(color=="red"){
+    }else if(color.equals("red")){
        pet="Panda"; 
-    }else if(season=="summer"){
+    }else if(season.equals("summer")){
        pet="Pony"; 
-    }else if(!vowel&&color=="blue"&&season!="summer"&&season!="fall"){
+    }else if(!vowel&&color.equals("blue")&&season.equals("winter")){
        pet="Axolotl"; 
     }else {
        pet="Rock"; 
     }
 
     System.out.println("Your perfect pet is: "+pet);
-
-
 
     }
 }
