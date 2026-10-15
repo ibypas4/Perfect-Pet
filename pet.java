@@ -26,7 +26,7 @@ public class pet{
     }
     
     //asks for name until it starts with a letter
-    while (!("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(0, 1).toLowerCase()) >= 0)){
+    while (!("abcdefghijklmnopqrstuvwxyz".indexOf(name.substring(0, 1)) >= 0)){
          System.out.println("Enter your name:");
          name=(sc.nextLine()).toLowerCase();
     }
@@ -35,7 +35,7 @@ public class pet{
 
         String pet;
         //true if name starts with vowel if false then it stats with a constanant
-        boolean vowel=("AEIOUaeiou".indexOf(name.substring(0,1)))!=-1; 
+        boolean vowel=("aeiou".indexOf(name.substring(0,1)))!=-1; 
 
     if (color.equals("blue")&&season.equals("fall")){
         pet="Alligator";
@@ -58,6 +58,6 @@ public class pet{
     }
 
     System.out.println("Your perfect pet is: "+pet);
-
+    return;
     }
 }
